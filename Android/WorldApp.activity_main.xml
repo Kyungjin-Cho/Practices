@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#F2EEE5"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/FlagNextButton"
+            android:text="@string/next_question"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/scoreText"
+            style="@style/FlagScoreText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/FlagQuestion"
+                android:text="@string/country_name"
+                android:fontFamily="sans-serif-medium" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                app:srcCompat="@drawable/south_korea" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".MainActivity">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/flagButton1"
+                        style="@style/FlagFirstButton"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/south_korea" />
+
+                    <RadioButton
+                        android:id="@+id/flagButton2"
+                        style="@style/FlagSecondButton"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/japan" />
+
+                    <RadioButton
+                        android:id="@+id/flagButton3"
+                        style="@style/FlagThirdButton"
+                        android:fontFamily="sans-serif-condensed"
+                        android:padding="10dp"
+                        android:text="@string/taiwan"/>
+
+                    <RadioButton
+                        android:id="@+id/flagButton4"
+                        style="@style/FlagLastButton"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/singapore" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
