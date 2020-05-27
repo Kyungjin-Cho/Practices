@@ -1,0 +1,71 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the application. [CHAR LIMIT=12] -->
+    <string name="app_name">JOAHAJA World</string>
+
+    <!-- Question text in the flag game [CHAR LIMIT=20] -->
+    <string name="country_name">The name of this country</string>
+
+    <!-- Next question in the flag game [CHAR LIMIT-20] -->
+    <string name="next_question">NEXT</string>
+
+    <!-- South Korea [CHAR LIMIT-20] -->
+    <string name="south_korea">South Korea</string>
+
+    <!--Japan [CHAR LIMIT-20] -->
+    <string name="japan">Japan</string>
+
+    <!--Mongolia [CHAR LIMIT-20] -->
+    <string name="mongolia">Mongolia</string>
+
+    <!--Taiwan [CHAR LIMIT-20] -->
+    <string name="taiwan">Taiwan</string>
+
+    <!--Thailand [CHAR LIMIT-20] -->
+    <string name="thailand">Thailand</string>
+
+    <!--Cambodia [CHAR LIMIT-20] -->
+    <string name="cambodia">Cambodia</string>
+
+    <!--Myanmar [CHAR LIMIT-20] -->
+    <string name="myanmar">Myanmar</string>
+
+    <!--India [CHAR LIMIT-20] -->
+    <string name="india">India</string>
+
+    <!--Brunei [CHAR LIMIT-20] -->
+    <string name="brunei">Brunei</string>
+
+    <!--Indonesia [CHAR LIMIT-20] -->
+    <string name="indonesia">Indonesia</string>
+
+    <!--Singapore [CHAR LIMIT-20] -->
+    <string name="singapore">Singapore</string>
+
+    <!--Sri Lanka [CHAR LIMIT-20] -->
+    <string name="sri_lanka">Sri Lanka</string>
+
+    <!-- Bangladesh [CHAR LIMIT-20] -->
+    <string name="bangladesh">Bangladesh</string>
+
+    <!-- Philippines [CHAR LIMIT-20] -->
+    <string name="philippines">Philippines</string>
+
+    <!-- Malaysia [CHAR LIMIT-20] -->
+    <string name="Malaysia">Malaysia</string>
+
+    <!--Laos [CHAR LIMIT-20] -->
+    <string name="Laos">Laos</string>
+
+    <!-- East Timor [CHAR LIMIT-20] -->
+    <string name="east_timor">East Timor</string>
+
+    <!-- Try again button [CHAR LIMIT-20] -->
+    <string name="again">AGAIN</string>
+
+    <!-- Exit button [CHAR LIMIT-20] -->
+    <string name="exit">EXIT</string>
+
+    <!-- Score check text [CHAR LIMIT-20] -->
+    <string name="score_check">I checked my score ;)</string>
+
+</resources>
