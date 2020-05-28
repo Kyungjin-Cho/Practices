@@ -1,0 +1,71 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the application. [CHAR LIMIT=12] -->
+    <string name="app_name">JOAHAJA 세계공부</string>
+
+    <!-- Question text in the flag game [CHAR LIMIT=20] -->
+    <string name="country_name">이 국가의 이름은?</string>
+
+    <!-- Next question in the flag game [CHAR LIMIT-20] -->
+    <string name="next_question">다음 질문</string>
+
+    <!-- South Korea [CHAR LIMIT-20] -->
+    <string name="south_korea">대한민국</string>
+
+    <!--Japan [CHAR LIMIT-20] -->
+    <string name="japan">일본</string>
+
+    <!--Mongolia [CHAR LIMIT-20] -->
+    <string name="mongolia">몽골</string>
+
+    <!--Taiwan [CHAR LIMIT-20] -->
+    <string name="taiwan">대만</string>
+
+    <!--Thailand [CHAR LIMIT-20] -->
+    <string name="thailand">태국</string>
+
+    <!--Cambodia [CHAR LIMIT-20] -->
+    <string name="cambodia">캄보디아</string>
+
+    <!--Myanmar [CHAR LIMIT-20] -->
+    <string name="myanmar">미얀마</string>
+
+    <!--India [CHAR LIMIT-20] -->
+    <string name="india">인도</string>
+
+    <!--Brunei [CHAR LIMIT-20] -->
+    <string name="brunei">브루나이</string>
+
+    <!--Indonesia [CHAR LIMIT-20] -->
+    <string name="indonesia">인도네시아</string>
+
+    <!--Singapore [CHAR LIMIT-20] -->
+    <string name="singapore">싱가포르</string>
+
+    <!--Sri Lanka [CHAR LIMIT-20] -->
+    <string name="sri_lanka">스리랑카</string>
+
+    <!-- Bangladesh [CHAR LIMIT-20] -->
+    <string name="bangladesh">방글라데시</string>
+
+    <!-- Philippines [CHAR LIMIT-20] -->
+    <string name="philippines">필리핀</string>
+
+    <!-- Malaysia [CHAR LIMIT-20] -->
+    <string name="Malaysia">말레이시아</string>
+
+    <!--Laos [CHAR LIMIT-20] -->
+    <string name="Laos">라오스</string>
+
+    <!-- East Timor [CHAR LIMIT-20] -->
+    <string name="east_timor">동티모르</string>
+
+    <!-- Try again button [CHAR LIMIT-20] -->
+    <string name="again">다시 풀기</string>
+
+    <!-- Exit button [CHAR LIMIT-20] -->
+    <string name="exit">나가기</string>
+
+    <!-- Score check text [CHAR LIMIT-20] -->
+    <string name="score_check">점수를 확인했습니다 ;)</string>
+
+</resources>
