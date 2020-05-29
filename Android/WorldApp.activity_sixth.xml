@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#5F9EA0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SixthActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/smile" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_marginTop="320dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp"
+            android:paddingLeft="24dp"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:text="@string/score_check" />
+
+        <Button
+            android:id="@+id/again"
+            style="@style/FlagAgainButton"
+            android:text="@string/again" />
+
+        <Button
+            android:id="@+id/exit"
+            style="@style/FlagExitButton"
+            android:text="@string/exit" />
+
+    </RelativeLayout>
+</ScrollView>
