@@ -1,0 +1,205 @@
+# Chapter6
+library(dplyr)
+exam <- read.csv("csv_exam.csv")
+exam
+
+# exam에서 class가 특정한 경우만 추출해 출력
+exam %>% filter(class == 1)
+exam %>% filter(class == 2)
+
+#exam에서 class가 특정한 경우가 아닐 때만 추출해 출력
+exam %>% filter(class != 1)
+exam %>% filter(class != 3)
+
+exam %>% filter(math > 50)
+exam %>% filter(math < 50)
+exam %>% filter(english >= 80)
+exam %>% filter(english <= 80)
+
+# 여러 조건 충족하는 경우만 출력
+exam %>% filter(class == 1 & math >= 50)
+exam %>% filter(class == 2 & english >= 80)
+
+# 여러 조건 중 하나만 충족하는 경우를 출력
+exam %>% filter(math >= 90 | english >= 90)
+exam %>% filter(english < 90 | science < 50)
+exam %>% filter(class == 1 | class == 3 | class == 5)
+
+exam %>% filter(class %in% c(1, 3, 5)) # 1, 3, 5반에 해당하면 추출
+
+class1 <- exam %>% filter(class == 1)
+class2 <- exam %>% filter(class == 2)
+mean(class1$math)
+mean(class2$math)
+
+library(ggplot2)
+mpg <- as.data.frame(ggplot2::mpg)
+
+displ_four <- mpg %>% filter(displ <= 4)
+displ_five <- mpg %>% filter(displ >= 5)
+mean(displ_four$hwy)
+mean(displ_five$hwy)
+
+audi <- mpg %>% filter(manufacturer == "audi")
+toyota <- mpg %>% filter(manufacturer == "toyota")
+mean(audi$cty)
+mean(toyota$cty)
+
+parts <- mpg %>% filter(manufacturer %in% c("chevrolet", "ford", "honda"))
+mean(parts$hwy)
+
+exam %>% select(math) # 특정 변수 추출
+exam %>% select(english)
+exam %>% select(class, math, english)
+
+exam %>% select(-math) # 특정 변수 제외
+exam %>% select(-math, -english)
+
+# class가 1인 행만 추출한 후english 추출
+exam %>% filter(class == 1) %>% select(english)
+exam %>% filter(class == 1) %>% 
+  select(english)
+
+exam %>% select(id, math) %>% 
+  head
+exam %>% select(id, math) %>% 
+  head(10)
+
+mpg <- as.data.frame(ggplot2::mpg)
+mpg_new <- mpg %>% select(class, cty)
+head(mpg_new)
+suv <- mpg %>% filter(class == "suv")
+compact <- mpg %>% filter(class == "compact")
+mean(suv$cty)
+mean(compact$cty)
+
+exam %>% arrange(math) # math 오름차순 정렬
+exam %>% arrange(desc(math)) # math 내림차순 정렬
+exam %>% arrange(class, math)
+
+mpg %>% filter(manufacturer == "audi") %>% 
+  arrange(desc(hwy)) %>% head(5)
+
+exam %>% mutate(total = math + english + science) %>% # 총합변수 추가 
+  head # 일부 추출
+
+exam %>% 
+  mutate(total = math + english + science,
+         mean = (math + english + science) / 3) %>% 
+  head
+
+exam %>% 
+  mutate(test = ifelse(science >= 60, "pass", "fail")) %>% #ifelse 적용
+  head
+
+exam %>% 
+  mutate(total = math + english + science) %>% # 총합 변수 추가 
+  arrange(total) %>% # 총합 변수 기준 정렬
+  head # 일부 추출
+
+mpg_new <- mpg
+mpg_new %>% 
+  mutate(total = cty + hwy) %>% 
+  head
+mpg_new %>% 
+  mutate(mean = total/2) %>% 
+  head
+mpg_new %>% 
+  arrange(desc(mean)) %>% 
+  head(3)
+mpg %>% 
+  mutate(total = cty + hwy,
+         mean = total/2) %>% 
+  arrange(desc(mean)) %>% 
+  head(3)
+
+exam %>% summarise(mean_math = mean(math)) # math 평균 산출
+exam %>% 
+  group_by(class) %>% # class별로 분리
+  summarise(mean_math = mean(math)) # mean 평균 산출
+exam %>% 
+  group_by(class) %>% # class별로 분리
+  summarise(mean_math = mean(math), # math 평균
+            sum_math = sum(math), # math 합계
+            median_math = median(math), # math 중앙값
+            n = n()) # 학생 수(행 개수)
+mpg %>% 
+  group_by(manufacturer, drv) %>% 
+  summarise(mean_cty = mean(cty)) %>% 
+  head(10)
+mpg %>% 
+  group_by(manufacturer) %>% # 회사별로 분리 
+  filter(class == "suv") %>% # suv 추출
+  mutate(tot = (cty+hwy)/2) %>% # 통합 연비 변수 생성
+  summarise(mean_tot = mean(tot)) %>% # 통합 연비 평균 산출
+  arrange(desc(mean_tot)) %>% #내림차순 정렬
+  head(5) # 1-5위까지 출력
+
+
+mpg %>% 
+  group_by(class) %>% 
+  summarise(mean_cty = mean(cty)) %>% 
+  arrange(desc(mean_cty))
+mpg %>% 
+  group_by(hwy) %>% 
+  summarise(mean_hwy = mean(cty)) %>% 
+  head()
+mpg %>% 
+  filter(class == "compact") %>% 
+  group_by(manufacturer) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count))
+
+test1 <- data.frame(id = c(1, 2, 3, 4, 5),
+                    midterm = c(70, 80, 70, 90, 85))
+test2 <- data.frame(id = c(1, 2, 3, 4, 5),
+                    final = c(70, 83, 65, 95, 80))
+test1
+test2
+
+total <- left_join(test1, test2, by = "id") # id 기준으로 합쳐 total에 할당
+total
+
+name <- data.frame(class = c(1, 2, 3, 4, 5),
+                   teacher = c("kim", "lee", "park", "choi", "jung"))
+name
+
+exam_new <- left_join(exam, name, by = "class")
+exam_new
+
+group_a <- data.frame(id = c(1, 2, 3, 4, 5),
+                      test = c(60, 80, 70, 90, 85))
+group_b <- data.frame(id = c(1, 2, 3, 4, 5),
+                      test = c(70, 83, 65, 95, 80))
+group_a
+group_b
+
+group_all <- bind_rows(group_a, group_b) # 세로로 합치기
+group_all
+
+fuel <- data.frame(fl = c("c", "d", "e", "p", "r"),
+                   price_fl = c(2.35, 2.38, 2.11, 2.76, 2.22),
+                   stringsAsFactors = F)
+fuel
+mpg <- as.data.frame(ggplot2::mpg)
+mpg <- left_join(mpg, fuel, by = "fl")
+mpg %>% 
+  select(model, fl, price_fl) %>% 
+  head(5)
+
+midwest <- as.data.frame(ggplot2::midwest)
+midwest <- midwest %>% 
+  mutate(ratio_child = (poptotal-popadults)/poptotal*100)
+midwest %>% 
+  arrange(desc(ratio_child)) %>% 
+  select(county, ratio_child) %>% 
+  head(5)
+midwest <- midwest %>% 
+  mutate(grade = ifelse(ratio_child >= 40, "large",
+                        ifelse(ratio_child >= 30, "middle", "small")))
+table(midwest$grade)
+midwest %>% 
+  mutate(ratio_asian = (popasian/poptotal)*100) %>% 
+  arrange(ratio_asian) %>% 
+  select(state, county, ratio_asian) %>% 
+  head(10)
