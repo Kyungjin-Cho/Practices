@@ -1,0 +1,128 @@
+## Chapter9_1-5
+install.packages("foreign") # foreign 패키지 설치
+
+library(foreign) # SPSS 파일 불러오기
+library(dplyr) # 전처리
+library(ggplot2) # 시각화
+library(readxl) # 엑셀 파일 불러오기
+
+# 데이터 불러오기
+raw_welfare <- read.spss(file = "Koweps_hpc10_2015_beta1.sav",
+                         to.data.frame = T)
+# 복사본 만들기
+welfare <- raw_welfare
+
+# 데이터 살펴보기
+head(welfare)
+tail(welfare)
+View(welfare)
+dim(welfare)
+str(welfare)
+summary(welfare)
+
+# 변수 이름 바꾸기
+welfare <- rename(welfare,
+                  sex = h10_g3,
+                  birth = h10_g4,
+                  marriage = h10_g10,
+                  religion = h10_g11,
+                  income = p1002_8aq1,
+                  code_job = h10_eco9,
+                  code_region = h10_reg7)
+
+# 성별 변수 검토하기
+class(welfare$sex)
+# 이상치 확인하기
+table(welfare$sex)
+# 성별 항목 이름 부여
+welfare$sex <- ifelse(welfare$sex == 1, "male", "female")
+table(welfare$sex)
+qplot(welfare$sex)
+
+# 월급 변수 검토하기
+class(welfare$income)
+summary(welfare$income)
+qplot(welfare$income)
+qplot(welfare$income) + xlim(0, 1000)
+# 이상치 확인하기
+summary(welfare$income)
+# 이상치 결측 처리
+welfare$income <- ifelse(welfare$income %in% c(0, 9999), NA, welfare$income)
+# 결측치 확인
+table(is.na(welfare$income))
+
+# 성별 월급 평균표 만들기
+sex_income <- welfare %>% 
+  filter(!is.na(income)) %>% 
+  group_by(sex) %>% 
+  summarise(mean_income = mean(income))
+sex_income
+# 그래프 만들기
+ggplot(data = sex_income, aes(x = sex, y = mean_income)) + geom_col()
+
+# 나이 변수 검토하기
+class(welfare$birth)
+summary(welfare$birth)
+qplot(welfare$birth)
+# 이상치 확인
+summary(welfare$birth)
+# 결측치 확인
+table(is.na(welfare$birth))
+# 이상치 결측 처리
+welfare$birth <- ifelse(welfare$birth == 9999, NA, welfare$birth)
+table(is.na(welfare$birth))
+# 파생 변수 만들기
+welfare$age <- 2015 - welfare$birth + 1
+summary(welfare$age)
+qplot(welfare$age)
+
+# 나이 월급 평균표 만들기
+age_income <- welfare %>% 
+  filter(!is.na(income)) %>% 
+  group_by(age) %>% 
+  summarise(mean_income = mean(income))
+head(age_income)
+# 그래프 만들기
+ggplot(data = age_income, aes(x = age, y = mean_income)) + geom_line()
+
+# 연령대 파생변수 만들기
+welfare <- welfare %>% 
+  mutate(ageg = ifelse(age < 30, "young",
+                       ifelse(age <= 59, "middle", "old")))
+table(welfare$ageg)
+qplot(welfare$ageg)
+# 연령대 평균 월급 분석
+ageg_income <- welfare %>% 
+  filter(!is.na(income)) %>% 
+  group_by(ageg) %>% 
+  summarise(mean_income = mean(income))
+ageg_income
+# 그래프 만들기
+ggplot(data = ageg_income, aes(x = ageg, y = mean_income)) + geom_col()
+ggplot(data = ageg_income, aes(x = ageg, y = mean_income)) +
+  geom_col() +
+  scale_x_discrete(limits = c("young", "middle", "old"))
+
+# 연령대 및 성별 월급 평균표 만들기
+sex_income <- welfare %>% 
+  filter(!is.na(income)) %>% 
+  group_by(ageg, sex) %>% 
+  summarise(mean_income = mean(income))
+sex_income
+# 그래프 만들기
+ggplot(data = sex_income, aes(x = ageg, y = mean_income, fill = sex)) +
+  geom_col() +
+  scale_x_discrete(limits = c("young", "middle", "old"))
+ggplot(data = sex_income, aes(x = ageg, y = mean_income, fill = sex)) +
+  geom_col(position = "dodge") +
+  scale_x_discrete(limits = c("young", "middle", "old"))
+
+# 성별 연령별 월급 평균표 만들기
+sex_age <- welfare %>% 
+  filter(!is.na(income)) %>% 
+  group_by(age, sex) %>% 
+  summarise(mean_income = mean(income))
+head(sex_age)
+# 그래프 만들기
+ggplot(data = sex_age, aes(x = age, y = mean_income, col = sex)) +
+  geom_line()
