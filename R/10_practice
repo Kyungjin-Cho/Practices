@@ -1,0 +1,37 @@
+# Chapter11_1
+# 패키지 설치 및 로드
+install.packages("ggiraphExtra")
+library(ggiraphExtra)
+
+# 미국 주별 범죄 데이터 준비
+str(USArrests)
+head(USArrests)
+
+# 새 데이터 프레임 만들기
+library(tibble)
+
+crime <- rownames_to_column(USArrests, var = "state")
+crime$state <- tolower(crime$state)
+str(crime)
+
+# 미국 주 지도 데이터 준비
+library(ggplot2)
+install.packages("maps")
+library(maps)
+install.packages("mapproj")
+library(mapproj)
+states_map <- map_data("state")
+str(states_map)
+
+# 단계 구분도 만들기
+ggChoropleth(data = crime, # 지도에 표현할 데이터
+             aes(fill = Murder, # 색으로 표현할 변수
+                 map_id = state), # 지역 기준 변수
+             map = states_map) # 지도 데이터터
+
+# 인터렉티브 단계 구분도 만들기
+ggChoropleth(data = crime,
+             aes(fill = Murder,
+                 map_id = state),
+             map = states_map,
+             interactive = T) # 인터랙티브
