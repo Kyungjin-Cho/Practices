@@ -1,13 +1,10 @@
 def linear_search(element, some_list):
-    input_list = list(some_list)
-    ele = element
-
-    for i in range(0, len(input_list)):
-        if ele == input_list[i]:
+    # 코드를 작성하세요.
+    for i in range(len(some_list)):
+        if element == some_list[i]:
             return i
             break
-
-        elif i == len(input_list) and ele != input_list[i]:
+        elif element != some_list[i] and i == len(some_list):
             return None
         else:
             continue
