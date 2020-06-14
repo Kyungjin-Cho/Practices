@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String[] args) {
+        int num = 10000;
+        int key = 153;
+        int multiple = 1;
+        int count = 0;
+
+        while (multiple * key < num){
+            multiple += 1;
+            count += 1;
+        }
+        System.out.println(key*count);
+    }
+}
