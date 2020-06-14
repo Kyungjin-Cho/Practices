@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        // 각 과목 점수
+        int koreanScore = 86;
+        int mathScore = 94;
+        int scinceScore = 87;
+        int computerScore = 100;
+
+        // 평균 점수
+        System.out.println((double)(koreanScore + mathScore +
+        scinceScore + computerScore) / 4);
+    }
+}
