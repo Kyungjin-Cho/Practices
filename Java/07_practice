@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+        int[] intArray = new int[30];
+        
+        for (int i = 0; i < intArray.length; i++){
+            intArray[i] = i + 1001;
+        }
+        
+        String[] remainders = {"Zero", "One", "Two", "Three"};
+        
+        for (int i = 0; i < intArray.length; i++){
+            System.out.println(remainders[intArray[i]%4]);
+        }
+    }
+}
