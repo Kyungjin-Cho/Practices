@@ -1,0 +1,53 @@
+# Chapter13
+# 데이터 로드 및 자동차 변수 추출
+library(ggplot2)
+library(dplyr)
+
+mpg_diff <- mpg %>% 
+  select(class, cty) %>% 
+  filter(class %in% c("compact", "suv"))
+head(mpg_diff)
+table(mpg_diff$class)
+
+# t테스트를 이용한 t검정
+t.test(data = mpg_diff, cty ~ class, var.equal = T)
+
+# 연료 변수 추출 및 t검정
+mpg_diff2 <- mpg %>% 
+  select(fl, cty) %>% 
+  filter(fl %in% c("r", "p")) # r:regular, p:premium
+table(mpg_diff2$fl)
+t.test(data = mpg_diff2, cty ~ fl, var.equal = T)
+
+# economics 데이터 로드 및 상관분석
+economics <- as.data.frame(ggplot2::economics)
+cor.test(economics$unemploy, economics$pce)
+
+# 데이터 로드 및 상관행렬 생성
+head(mtcars)
+car_cor <- cor(mtcars) # 상관행렬 생성
+round(car_cor, 2) # 소수점 셋째 자리에서 반올림해 출력
+
+# 히트맵 패키지 설치 및 로드
+install.packages("corrplot")
+library(corrplot)
+
+# 원 상관행렬 히트맵
+corrplot(car_cor)
+
+# 상관계수 상관행렬 히트맵
+corrplot(car_cor, method = "number")
+
+# 색상 코드 목록 생성
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+# 다양한 파라미터 지정
+corrplot(car_cor,
+         method = "color", # 색으로 표현
+         col = col(200), # 색상 200개 지정
+         type = "lower", # 왼쪽 아래 행렬만 표시
+         order = "hclust", # 유사한 상관계수끼리 군집화
+         addCoef.col = "black", # 상관계수 색깔 
+         tl.col = "black", # 변수명 색깔
+         tl.srt = 45, # 변수명 45도 기울임
+         diag = F) # 대각 행렬 제외
