@@ -2,8 +2,11 @@ def consecutive_sum(start, end):
     # base case 
     if start == end:
         return start
-        
+    
+    # divide
     mid = (start + end) // 2
+    
+    # combine
     return consecutive_sum(start, mid) + consecutive_sum(mid + 1, end)    
     
         
