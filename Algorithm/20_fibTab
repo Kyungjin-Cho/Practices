@@ -1,0 +1,19 @@
+def fib_tab(n):
+    # fib_table 정의
+    fib_table = [0, 1, 1]
+    
+    # base case 
+    if n < 3:
+        return 1
+    
+    # recursive case
+    for i in range(3, n+1):
+        add = fib_table[i - 1] + fib_table[i - 2]
+        fib_table.append(add)
+    
+    return fib_table[n]
+        
+# 테스트
+print(fib_tab(10))
+print(fib_tab(56))
+print(fib_tab(132))
