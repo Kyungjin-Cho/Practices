@@ -1,0 +1,23 @@
+def min_coin_count(value, coin_list):
+    # 누적 동전 개수
+    count = 0
+    
+    # 동전 내림차순 정렬
+    coin_list = sorted(coin_list, reverse=True)
+    
+    for i in range(len(coin_list)):
+        # 현재 동전으로 몇 개 거슬러 줄 수 있는지 확인
+        coin = value // coin_list[i]
+        count += coin
+        
+        # 잔액 계산
+        value = value - coin_list[i] * coin
+             
+    return count
+
+# 테스트
+default_coin_list = [100, 500, 10, 50]
+print(min_coin_count(1440, default_coin_list))
+print(min_coin_count(1700, default_coin_list))
+print(min_coin_count(23520, default_coin_list))
+print(min_coin_count(32590, default_coin_list))
