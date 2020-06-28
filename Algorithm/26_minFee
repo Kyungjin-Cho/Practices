@@ -1,0 +1,22 @@
+def min_fee(pages_to_print):
+    # 페이지 수 오름차순 정렬
+    pages_to_print = sorted(pages_to_print)
+    
+    # 정답 변수 생성
+    result = 0
+    
+    # 페이지 수 계산
+    for i in range(len(pages_to_print)):
+        count = pages_to_print[i] * (len(pages_to_print) - i)
+        result += count
+    
+    # 정답 리턴    
+    return result
+        
+
+
+# 테스트
+print(min_fee([6, 11, 4, 1]))
+print(min_fee([3, 2, 1]))
+print(min_fee([3, 1, 4, 3, 2]))
+print(min_fee([8, 4, 2, 3, 9, 23, 6, 8]))
