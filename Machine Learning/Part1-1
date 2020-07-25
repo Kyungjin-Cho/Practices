@@ -1,0 +1,20 @@
+▶ Software Engineering Practices Part 1
+:　Writing clean and modular code, Writing efficient code, Code refactoring, Adding meaningful documentation, Using version control
+
+1. Clean and Modular Code
+● PRODUCTION CODE: software running on production servers to handle live users and data of the intended audience. Note this is different from production quality code, which describes code that meets expectations in reliability, efficiency, etc., for production. Ideally, all code in production meets these expectations, but this is not always the case.
+● CLEAN: readable, simple, and concise. A characteristic of production quality code that is crucial for collaboration and maintainability in software development.
+● MODULAR: logically broken up into functions and modules. Also an important characteristic of production quality code that makes your code more organized, efficient, and reusable.(reuse your code, write less code, read your code, collaborate on code)
+● MODULE: a file. Modules allow code to be reused by encapsulating them into files that can be imported into other files.
+
+2. Refactoring Code
+● restructuring your code to improve its internal structure, without changing its external functionality. This gives you a chance to clean and modularize your program after you've got it working.
+● Since it isn't easy to write your best code while you're still trying to just get it working, allocating time to do this is essential to producing high quality code. Despite the initial time and effort required, this really pays off by speeding up your development time in the long run.
+● You become a much stronger programmer when you're constantly looking to improve your code. The more you refactor, the easier it will be to structure and write good code the first time.
+
+3. Writing Clean Code
+● Meaningful Names(Be descriptive and imply type, Be consistent but clearly differentiate, Avoid abbreviations and especially single letters, Long names != descriptive names)
+● Nice whitespace(Use 4 spaces for each indent, Limit lines to around 79 characters, Separate sections with blank lines)
+
+4. Writing Clean Code
+● Don’t repeat yourself, Abstract out logic to improve readability, Minimize the number of entities(functions, classes, modules, etc.), Functions should do one thing, Arbitrary variable names can be more effective in certain functions, Try to use fewer than three arguments per function
