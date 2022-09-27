@@ -31,6 +31,5 @@ public class ScannerPI
     System.out.println("The circle with radius " + radius);
     System.out.println("Its area is " + area + " and circumference is " + circumference);
 
-
   } // main
 } // class
