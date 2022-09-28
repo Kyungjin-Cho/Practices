@@ -32,7 +32,8 @@ public class LoginApp
       {
         // ID, Password 일치시 보여줄 메시지
         JOptionPane.showMessageDialog(null, "Master! Congratulation", "Login Completed", JOptionPane.PLAIN_MESSAGE); 
-      } else 
+      } 
+      else 
       {
         // ID는 일치하나 Password 불일치시 Password 재입력 문구 팝업 
         String inputPass2 = JOptionPane.showInputDialog(null, "Enter the password again!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
@@ -41,14 +42,16 @@ public class LoginApp
         {
           // 재입력된 Password 일치시 보여줄 메시지
           JOptionPane.showMessageDialog(null, "Master! Congratulation", "Login COmpleted", JOptionPane.PLAIN_MESSAGE);
-        } else 
+        } 
+        else 
         {
           // 재입력된 Password 불일치시 에러 메시지 팝업
           JOptionPane.showMessageDialog(null, "Who are you?", "Wrong Password", JOptionPane.ERROR_MESSAGE);
         }
 
       }
-    } else 
+    } 
+    else 
     {
       // ID 불일치시 에러 메시지 팝업
       JOptionPane.showMessageDialog(null,"Who are you?", "Wrong ID", JOptionPane.ERROR_MESSAGE);
