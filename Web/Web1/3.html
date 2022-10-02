@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEB1 - JavaScript</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+  
+  <input id="night_day" type="button" value="night" onclick="
+    if(document.querySelector('#night_day').value === 'night'){
+      document.querySelector('body').style.backgroundColor ='black';
+      document.querySelector('body').style.color ='lightseagreen';
+      document.querySelector('#night_day').value = 'day';
+    } else {
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'gray';
+      document.querySelector('#night_day').value = 'night';
+    }
+  ">
+
+  <div id="grid">
+    <ol>
+      <li><a href="1.html">HTML</a></li>
+      <li><a href="2.html">CSS</a></li>
+      <li><a href="3.html">JavaScript</a></li>
+    </ol>
+
+    <div id="article">
+
+      <h2>JavaScript란 무엇인가?</h2>
+      <p>
+        <a href="https://www.javascript.com/" target="_blank">JavaScript</a> often abbreviated to JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries. All major web browsers have a dedicated JavaScript engine to execute the code on users' devices.
+      </p>
+
+      <img src="javascript.jpg" width="100%" height="400px" alt="javascript coding"/>
+
+      <p style="margin-top: 45px;">
+        JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard. It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).
+      </p>
+
+      <p>
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://web1-sqqseyn5h8.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
