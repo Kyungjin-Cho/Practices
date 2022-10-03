@@ -4,22 +4,40 @@
   <title>WEB1 - Welcome</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script>
+    function nightDayHandler(self){
+      var target = document.querySelector('body');
+      if(self.value === 'night'){
+        target.style.backgroundColor ='black';
+        target.style.color ='lightseagreen';
+        self.value = 'day';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = 'peachpuff';
+          i = i + 1;
+        }
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'gray';
+        self.value = 'night';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i < alist.length){
+          alist[i].style.color = 'lightcoral';
+          i = i + 1;
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
 
-  <input id="night_day" type="button" value="night" onclick="
-    if(document.querySelector('#night_day').value === 'night'){
-      document.querySelector('body').style.backgroundColor ='black';
-      document.querySelector('body').style.color ='lightseagreen';
-      document.querySelector('#night_day').value = 'day';
-    } else {
-      document.querySelector('body').style.backgroundColor = 'white';
-      document.querySelector('body').style.color = 'gray';
-      document.querySelector('#night_day').value = 'night';
-    }
-  ">
+  <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
 
 
   <div id="grid">
