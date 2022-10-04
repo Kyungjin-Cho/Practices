@@ -4,34 +4,8 @@
   <title>WEB1 - Welcome</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <script>
-    function nightDayHandler(self){
-      var target = document.querySelector('body');
-      if(self.value === 'night'){
-        target.style.backgroundColor ='black';
-        target.style.color ='lightseagreen';
-        self.value = 'day';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while(i < alist.length){
-          alist[i].style.color = 'peachpuff';
-          i = i + 1;
-        }
-      } else {
-        target.style.backgroundColor = 'white';
-        target.style.color = 'gray';
-        self.value = 'night';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while(i < alist.length){
-          alist[i].style.color = 'lightcoral';
-          i = i + 1;
-        }
-      }
-    }
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="colors.js"></script>
 </head>
 
 <body>
