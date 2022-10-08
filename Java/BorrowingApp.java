@@ -11,8 +11,8 @@ public class BorrowingApp {
     int numMonth;
     double amtOriginal, amtInterest, amtTotal;
 
-    // Declare and create objects
-    // Create & link between the 2 classes
+    // Declare and create objects.
+    // Create & link between the 2 classes.
     Borrowing myB = new Borrowing();
 
     // Input
