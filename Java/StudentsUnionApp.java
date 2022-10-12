@@ -5,7 +5,6 @@
  */
 
 import javax.swing.JOptionPane;
-nextDouble()
 
 public class StudentsUnionApp {
   public static void main(String[] args){
