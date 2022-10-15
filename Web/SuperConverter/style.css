@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+
+body {
+  background-color: #FADBD8;
+  color: #2E4053;
+  font-family: "Sofia", sans-serif;
+}
+
+body.h1 {
+  font-weight: bolder;
+}
+
+#container {
+  text-align: center;
+  margin-top: 200px;
+}
+
+#container input{
+ color: #F1948A;
+ width: 300px;
+ height: 30px;
+ margin-top: 10px;
+ margin-left: 10px;
+ border-radius: 4px;
+}
+
+#container input:focus {
+  border: 3px solid #80CEBE;
+  background-color: #EAF9CA;
+  color: #80CEBE;
+  font-weight: bold;
+}
+
+#container ::placeholder{
+  color: darkgray;
+}
+
+#container select{
+  width: 200px;
+  height: 30px;
+  color: #F1948A;
+}
+
+#container button {
+  margin-left: 10px;
+  background-color: #D8F9E2;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React Practice</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+<!--Import React $ React-Dom -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    function MinutesToHours(){
+      // useState : array 제공
+      const[amount, setAmount] = React.useState(); // 괄호안 : setState default 값
+      // 첫번째요소: 데이터값, 두번째요소: 데이터 수정하기 위한 함수
+      const[flipped, setFlipped] = React.useState(false); // default : false
+      const onChange = (event) => {
+        setAmount(event.target.value); // event 발생시 값 업데이트
+      };
+      const reset = () => setAmount(0);
+      const onFlip = () => {
+        reset();
+        setFlipped((current) => !(current));
+      }; 
+      return (
+      <div>
+        <div>
+          <label htmlFor="minutes">Minutes</label>
+          <input 
+            value={flipped ? amount * 60 : amount} // UI에 보여줌
+            // 만약 true(flipped)라면 변환값 보여주고, false면 현재값 보여줌
+            id="minutes" 
+            placeholder="Minutes" 
+            type="number" 
+            disabled = {flipped}
+            onChange={onChange} // event 들어줌  
+          />  
+        </div>
+        <div>
+          <label htmlFor="hours">Hours</label>
+          <input 
+            value={flipped ? amount : Math.round(amount / 60)}
+            // 만약 true(flipped)라면 현재값 보여주고, false면 변환값 보여줌
+            id="hours"
+            placeholder="Hours"
+            type="number" 
+            disabled = {!flipped}
+            onChange={onChange} // event 들어줌
+            />
+        </div>
+        <button onClick={reset}>Reset</button>
+        <button onClick={onFlip}>Flip</button>
+      </div>
+      );
+    }
+    function CmToInch() {
+      const [length, setLength] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const onChange = (event) => {
+        setLength(event.target.value);
+      };
+
+      const reset = () => {setLength(0);};
+
+      const onInvert = () => {
+        reset();
+        setInverted((current) => !current);
+      };
+
+      return (
+        <div>
+          <div>
+            <label htmlFor="centimeters">Centimeters</label>
+            <input disabled={inverted} onChange={ onChange } value={inverted ? Math.round(length/0.393701 * 100)/100 : length} id="centimeters" placeholder="Centimeters" type="number"/>
+          </div>
+          <div>
+            <label htmlFor="inches">Inches</label>
+            <input disabled={!inverted} onChange={ onChange } value={inverted ? length : Math.round(length*0.393701)/100} id="inches" placeholder="Inches" type="number"/>
+          </div>
+        <button onClick={reset}>Reset</button> 
+        <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+       </div>
+      );
+    };
+
+    function App () {
+      const [index, setIndex] = React.useState("xx");
+      const onSelect = (event) => {
+setIndex(event.target.value);
+      };
+
+      return (
+        <div id="container">
+          <h1>Super Converter</h1>
+          <select value={index} onChange={ onSelect }>
+            <option value="xx">Select your units.</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Cm & Inch</option>
+          </select>
+          <hr />
+          {index === "xx" ? "Please select your units." : null} 
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <CmToInch /> : null }
+        </div>
+      );
+    }
+    const root = document.getElementById("root"); 
+    ReactDOM.render(<App />, root);
+    </script>
+</html> 
