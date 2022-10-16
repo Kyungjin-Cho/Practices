@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 4</title>
+    <link rel="stylesheet" href="mystyle.css"/>
+  </head>
+
+  <body>
+    <div class="whole">
+      <section class="left">
+        <h1>Student Profile</h1>
+    <div id="table">
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>School</th>
+        </tr>
+        <tr>
+          <td>Kyungjin</td>
+          <td>Cho</td>
+          <td><img src="img/nci.png" alt="nci"/></td>
+          <!--img from https://www.pngwing.com/en/free-png-ayade -->
+        </tr>
+        <tr>
+          <td>Harry</td>
+          <td>Potter</td>
+          <td rowspan="2"><img src="img/hogwarts.png" alt="tcd"/></td>
+          <!--img from https://www.pngwing.com/en/free-png-ayade -->
+        </tr>
+        </tr>
+        <tr>
+          <td>Hermione</td>
+          <td>Granger</td>
+        </tr>
+      </table>
+    </div>
+      </section>
+      <section class="right">
+        <div id="form">
+          <h1> Create Account </h1>
+          <form> 
+            <p class="heading">First Name *</p>  
+            <input class="textbox" required maxlength="10" name="fname" type="text" placeholder="enter your first name"/> 
+            <p class="heading">Middle Name</p> 
+            <input class="textbox" maxlength="10" name="lname" type="text" placeholder="enter your last Name"/> 
+            <p class="heading">Email *</p> 
+            <input class="textbox" required maxlength="20" name="lname" type="text" placeholder="enter your email"/>
+            <p class="heading">Password *</p> 
+            <input class="textbox" required minlength="4" name="password" type="password" placeholder="enter your password"/>
+            <p class="heading">Confirm Password *</p>
+            <input class="textbox" required minlength="4" name="confirm" type="confirm" placeholder="enter your password again"/>
+
+            <div id="radio">
+              <label class="heading">Gender: </label> 
+              <input type="radio" name="gender" value="male"/> Male
+              <input type="radio" name="gender" value="female"/> Female
+              <input type="radio" name="gender" value="other"/> Other
+              <input type="radio" name="gender" value="not"/> Prefer not to say
+            </div>
+            
+            <div id="checkbox">
+              <label class="heading">Hobbies </label></br>
+              <input type="checkbox" name="hobbies" value="music"/> Music
+              <input type="checkbox" name="hobbies" value="sports"/> Sports
+              <input type="checkbox" name="hobbies" value="travel"/> Travel
+              <input type="checkbox" name="hobbies" value="movies"/> Movies
+            </div>
+
+            <div id="select">
+              <p class="heading">Source of Income</p>
+              <select name="income">
+                <option value="employed">Employed</option>
+                <option value="unemployed">Unemployed</option>
+              </select>
+            </div>
+
+            <div id="message">
+            <p class="heading">Bio</p>
+              <textarea name="bio" rows="5" cols="25"></textarea>
+            </div>
+            <div id="button">
+              <label><b>* required</b></label>
+              <input type="submit" name="create" value="Create"/>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

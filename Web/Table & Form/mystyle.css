@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia");
+
+body {
+  background-color: lightpink;
+}
+
+.whole{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.left {
+  width: 50%;
+}
+
+.left h1{
+  font-size: 32px;
+  color: black;
+  margin-left: 20px;
+  font-family: "Sofia", sans-serif;
+}
+
+.left table {
+  width: 80%;
+  margin-left: 20px;
+  text-align: center;
+  border: 4px solid palevioletred;
+  border-collapse: collapse;
+}
+
+.left th, td {
+  border: 2px dashed palevioletred;
+}
+
+.left th{
+  font-family: "Sofia", sans-serif;
+}
+
+.left img{
+  width: 150px;
+  height: 150px;
+}
+
+.right {
+  width: 50%;
+  font-family: "Sofia", sans-serif;
+}
+
+.right #form {
+  background-color: white;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+#form h1 {
+  font-size: 32px;
+  color: black;
+  margin-left: 20px
+}
+
+
+#form form{
+  margin-left: 40px;
+}
+
+#form .heading{
+  color: lightseagreen;
+  font-size: 16px;
+}
+
+#form .textbox{
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  background-color: #D8F9E2;
+  color: lightgray;
+  width: 90%;
+  height: 30px;
+}
+
+#form #radio {
+  color: lightgray;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+#form #checkbox {
+  color: lightgray;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+#form select {
+  background-color: #D8F9E2;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  color: black;
+  width: 90%;
+  height: 30px;
+}
+
+#form textarea {
+  width: 90%;
+  background-color: #D8F9E2;
+  margin-bottom: 20px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+#button label{
+  color: lightgray;
+  font-size: 14px;
+}
+
+#button input {
+  background-color: #96E7C3;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
