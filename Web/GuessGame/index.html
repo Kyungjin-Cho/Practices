@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Guess Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Random Number Game</h1>
+  <form id="gameForm">
+    <div id="generateNumber">
+      <h2>Generate a number between 0 and <input id="maxNum" type="number" min="0" required></h2>
+    </div>
+
+    <div id="guessNumber">
+      <h3>Guess the number <input id="ansNum" type="number" min="0" required></h3>
+      <button type="submit" id="playBtn">Play!</button>
+    </div>
+  </form>
+
+  <div id="resultArea"></div>
+  <h4 id="descArea"></h4>
+
+  <script src="game.js"></script>
+</body>
+
+</html>

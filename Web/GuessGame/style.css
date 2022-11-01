@@ -1,0 +1,10 @@
+body {
+  background-color: beige;
+}
+
+h1 {
+  font-weight: bolder;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 3px dashed cadetblue;
+}
