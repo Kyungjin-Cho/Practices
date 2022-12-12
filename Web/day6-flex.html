@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.big {
+  height: 300px;
+  width: 300px;
+  background-color: wheat;
+  padding: 20px;
+  border: solid 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
+
+.big div:first-child,
+.big div:nth-child(3) {
+  height: 50px;
+  width: 50px;
+  background-color: teal;
+  margin: 20px;
+  border: solid 5px white;
+  }
+
+.big div:nth-child(2) {
+  height: 50px;
+  width: 180px;
+  background-color: teal;
+  margin: 20px;
+  border: dashed 5px white;
+  }
+  </style>
+</head>
+<body>
+  <div class="big">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+</body>
+</html>
