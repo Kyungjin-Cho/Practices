@@ -1,0 +1,84 @@
+class MergeSort {
+  public static void sort(Film[] arr) {
+    mergeSort(arr, 0, arr.length - 1);
+  }
+
+  private static void mergeSort(Film[] arr, int start, int end) {
+    if (start < end) {
+      int mid = (start + end) / 2;
+      mergeSort(arr, start, mid);
+      mergeSort(arr, mid + 1, end);
+      merge(arr, start, mid, end);
+    }
+  }
+
+  private static void merge(Film[] arr, int start, int mid, int end) {
+    int n1 = mid - start + 1;
+    int n2 = end - mid;
+
+    Film[] leftArr = new Film[n1];
+    Film[] rightArr = new Film[n2];
+
+    for (int i = 0; i < n1; i++) {
+      leftArr[i] = arr[start + i];
+    }
+
+    for (int i = 0; i < n2; i++) {
+      rightArr[i] = arr[mid + 1 + i];
+    }
+
+    int i = 0, j = 0, k = start;
+    while (i < n1 && j < n2) {
+      if (leftArr[i].getRating() <= rightArr[j].getRating()) {
+        arr[k] = leftArr[i];
+        i++;
+      } else {
+        arr[k] = rightArr[j];
+        j++;
+      }
+      k++;
+    }
+
+    while (i < n1) {
+      arr[k] = leftArr[i];
+      i++;
+      k++;
+    }
+
+    while (j < n2) {
+      arr[k] = rightArr[j];
+      j++;
+      k++;
+    }
+  }
+}
+
+class QuickSort {
+  public static void quickSort(Film[] arr, int low, int high) {
+    if (low < high) {
+      int partitionIndex = partition(arr, low, high);
+      quickSort(arr, low, partitionIndex - 1);
+      quickSort(arr, partitionIndex + 1, high);
+    }
+  }
+
+  private static int partition(Film[] arr, int low, int high) {
+    float pivot = arr[high].getRating();
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++) {
+      if (arr[j].getRating() < pivot) {
+        i++;
+        swap(arr, i, j);
+      }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+  }
+
+  private static void swap(Film[] arr, int i, int j) {
+    Film temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+}
